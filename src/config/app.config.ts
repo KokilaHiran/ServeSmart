@@ -6,5 +6,6 @@ export const AppConfig = {
     port: process.env.PORT || 3000,
     jwtSecret: process.env.JWT_SECRET || "your_jwt_secret",
     JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || "1h",
-    DB_URL: process.env.DB_URL || "localhost"
+    MONGODB_URL: process.env.DB_URL,
+    DB_PASS: process.env.PASSWORD || "your_db_password"
 };
