@@ -13,7 +13,7 @@ export class AppRouter {
         return AppRouter.instance;
     }
 
-    constructor() {
+    private constructor() {
         this.router = ExpressRouter();
         this.setupRoutes();
     }
@@ -23,7 +23,5 @@ export class AppRouter {
         this.router.use("/customer", CustomerRoute.getInstance().getRouter());
     }
 
-    getRouter() {
-        return this.router;
-    }
+
 }

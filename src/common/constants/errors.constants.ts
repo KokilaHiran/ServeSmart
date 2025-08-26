@@ -10,5 +10,9 @@ export const Errors = {
     LOGIN_FAILED: {
         key: "LOGIN_FAILED",
         message: "INVALID credentials"
+    },
+    GET_FAILED: {
+        key: "GET_FAILED",
+        message: "Failed to retrieve resource"
     }
 };
