@@ -24,16 +24,13 @@ export class CustomerController {
                 phone:"123-456-7890",
                 address:"123 Main St, Anytown, USA",
             };
-
+            //throw new Error("Error fetching customer");
             successResponse(HttpStatus.OK, res, customer, false);
         } catch (error) {
             errorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 res,
-                {
-                    message: "An error occurred while fetching the customer",
-                    key: ""
-                }
+                { message: "Bad request", key: "" }
             );
         }
     }

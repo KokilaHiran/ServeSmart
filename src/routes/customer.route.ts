@@ -23,7 +23,7 @@ export class CustomerRoute {
     }
 
     private setupRoutes() {
-        this.router.get("/", this.customerController.getCustomer);
+    this.router.get("/", this.customerController.getCustomer);
     }
 
     public getRouter(): Router {

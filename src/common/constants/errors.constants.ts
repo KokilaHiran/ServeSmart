@@ -14,5 +14,9 @@ export const Errors = {
     GET_FAILED: {
         key: "GET_FAILED",
         message: "Failed to retrieve resource"
+    },
+    USER_NOT_FOUND: {
+        key: "USER_NOT_FOUND",
+        message: "User not found"
     }
 };
