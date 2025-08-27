@@ -25,9 +25,9 @@ export class CustomerController {
                 address:"123 Main St, Anytown, USA",
             };
             //throw new Error("Error fetching customer");
-            successResponse(HttpStatus.OK, res, customer, false);
+            return successResponse(HttpStatus.OK, res, customer, false);
         } catch (error) {
-            errorResponse(
+            return errorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 res,
                 { message: "Bad request", key: "" }

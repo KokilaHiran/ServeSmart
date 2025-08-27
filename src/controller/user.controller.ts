@@ -22,12 +22,12 @@ export class UserController {
         try {
             const userData = req.body;
             const newUser = await this.userService.createUser(userData);
-            successResponse(HttpStatus.CREATED, res, newUser, false);
+            return successResponse(HttpStatus.CREATED, res, newUser, false);
         } catch (error:any) {
             if(error.message === "User not found") {
-                errorResponse(HttpStatus.NOT_FOUND, res, { message: "User not found", key: "" });
+                return errorResponse(HttpStatus.NOT_FOUND, res, { message: "User not found", key: "" });
             } else {
-                errorResponse(HttpStatus.INTERNAL_SERVER_ERROR, res, { message: "An error occurred while creating the user", key: "" });
+                return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR, res, { message: "An error occurred while creating the user", key: "" });
             }
         }
     }
@@ -36,12 +36,12 @@ export class UserController {
         try{
             const email = req.params.email;
             const user = await this.userService.getUserByEmail(email);
-            successResponse(HttpStatus.OK, res, user, false);
+            return successResponse(HttpStatus.OK, res, user, false);
         } catch (error:any) {
             if(error.status === 404 || error.message === "User not found") {
-                errorResponse(HttpStatus.NOT_FOUND, res, { message: "User not found", key: "" });
+                return errorResponse(HttpStatus.NOT_FOUND, res, { message: "User not found", key: "" });
             } else {
-                errorResponse(
+                return errorResponse(
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     res,
                     {
