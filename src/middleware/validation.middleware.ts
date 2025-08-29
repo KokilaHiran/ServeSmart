@@ -27,7 +27,8 @@ export function validateRequestBody(schema:any) : (req:Request, res:Response, ne
             return errorResponse(
                 HttpStatus.BAD_REQUEST,
                 res,
-                Errors.INVALID_ID_REQUEST_BODY_FORMAT
+                Errors.INVALID_ID_REQUEST_BODY_FORMAT,
+                ajv.errorsText()
             );
         }
 

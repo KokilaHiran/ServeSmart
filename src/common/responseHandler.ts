@@ -7,11 +7,12 @@ export const successResponse = (code:HttpStatus,response:Response,data:any , alr
     response.status(code).json(responseData);
 }
 
-export const errorResponse = (code:HttpStatus,response:Response, error:IError, exactError?:IError) => {
+export const errorResponse = (code:HttpStatus,response:Response, error:IError, customMessage?:string) => {
     const  errorcontent = {
         code,
         key:error.key,
         message:error.message,
+        customMessage
     }
     response.status(code).json({ error: errorcontent });
 }
