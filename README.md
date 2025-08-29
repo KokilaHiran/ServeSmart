@@ -1,6 +1,6 @@
 # Express TypeScript API
 
-A RESTful API built with Express.js, TypeScript, and MongoDB (Mongoose).
+A robust, scalable API designed to streamline user and customer management for restaurants. This solution accelerates development, simplifies integration with modern restaurant applications, and enables efficient handling of staff and customer data to enhance operational efficiency and customer experience.
 
 ## Features
 - User and Customer management endpoints

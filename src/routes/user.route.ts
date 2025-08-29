@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { UserController } from "../controller/user.controller";
+import { validateRequestBody } from "../middleware/validation.middleware";
+import { createUserSchema } from "../dto/user/createUser.dto";
 
 export class UserRoutes {
     public getRouter(): Router {
@@ -19,7 +21,7 @@ export class UserRoutes {
     }
     
     private setupRoutes() {
-        this.router.post("/", this.userController.createUser);
+        this.router.post("/", validateRequestBody(createUserSchema), this.userController.createUser);
         this.router.get("/", (req, res) => {
             res.send("User route is working!");
         });

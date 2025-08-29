@@ -2,6 +2,7 @@ import { Request , Response } from "express";
 import { errorResponse, successResponse } from "../common/responseHandler";
 import { HttpStatus } from "../common/constants/httpStatus.enum";
 import { UserService } from "../service/user.service";
+import { CreateUserDto } from "../dto/user/createUser.dto";
 
 export class UserController {
     private static instance: UserController;
@@ -34,22 +35,12 @@ export class UserController {
 
     getUserByEmail = async (req:Request , res:Response) => {
         try{
-            const email = req.params.email;
-            const user = await this.userService.getUserByEmail(email);
-            return successResponse(HttpStatus.OK, res, user, false);
-        } catch (error:any) {
-            if(error.status === 404 || error.message === "User not found") {
-                return errorResponse(HttpStatus.NOT_FOUND, res, { message: "User not found", key: "" });
-            } else {
-                return errorResponse(
-                    HttpStatus.INTERNAL_SERVER_ERROR,
-                    res,
-                    {
-                        message: "An error occurred while fetching the user",
-                        key: ""
-                    }
-                );
-            }
+            const user = req.body as CreateUserDto;
+            const newUser = await this.userService.createUser(user);
+            return successResponse(HttpStatus.CREATED, res, newUser, false);
+        }catch(error:any) {
+            return errorResponse(HttpStatus.INTERNAL_SERVER_ERROR, res, { message: "An error occurred while fetching the user", key: "" });
         }
+        
     }
 }

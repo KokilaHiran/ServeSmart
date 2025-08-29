@@ -18,5 +18,9 @@ export const Errors = {
     USER_NOT_FOUND: {
         key: "USER_NOT_FOUND",
         message: "User not found"
+    },
+    INVALID_ID_REQUEST_BODY_FORMAT: {
+        key: "INVALID_ID_REQUEST_BODY_FORMAT",
+        message: "Invalid ID format"
     }
 };
